@@ -54,8 +54,15 @@ def rdm_song(text):
     if result.get("msg") == "error":
         if result.get("type") == "band":
             return "错误: 乐队条件错误\n支持: ppp, ro, ag, hhw, pp, other"
-        if result.get("type") == "type":
+        elif result.get("type") == "type":
             return "错误: 歌曲类型条件错误\n支持：ex, sp, full"
-        if result.get("diff") == "type":
-            return "错误: 难度条件错误\n支持：24~29"
+        elif result.get("type") == "diff":
+            return "错误: 难度条件错误\n支持：24~28"
+        elif result.get("type") == "result":
+            return "错误: 该条件下无歌曲可以选择"
+        else:
+            return "错误：{}".format(result.get("type"))
+
     return "选歌结果：\n{} — {}\n{} {}".format(result_name, result_band, result_type, result_diff)
+
+print(rdm_song("随机选歌 难度24;乐队ro;类型full"))

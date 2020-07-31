@@ -7,7 +7,7 @@ default_filter = {
     'band': ['ro', 'ppp', 'pp', 'ag', 'hhw', 'ras', 'mo', 'other'],
     'band_other': ['rimi', 'saaya', 'arisa', 'otae', 'ayaxmocaxlisaxkanonxtsugu', 'pppxykn', 'ksmxranxayaxyknxkkr',
                    'hhwxranxaya', 'roxran', 'agxkkr', 'pppxgg'],
-    'diff': ['24', '25', '26', '27', '28', '29'],
+    'diff': ['24', '25', '26', '27', '28'],
     'type': ['ex', 'sp', 'full']
 }
 
@@ -74,10 +74,22 @@ def random_song(band, diff, s_type, competitive=False):
 @app.route('/random_song', methods=['post'])
 def app_route():
     diff_filter = request.json.get('diff')
+    if diff_filter:
+        for fil in diff_filter:
+            if fil not in default_filter['diff']:
+                return msg_error_diff
     band_filter = request.json.get('band')
+    if band_filter:
+        for fil in band_filter:
+            if fil not in default_filter['band']:
+                return msg_error_band
     type_filter = request.json.get('type')
+    if type_filter:
+        for fil in type_filter:
+            if fil not in default_filter['type']:
+                return msg_error_band
     if_competitive = request.json.get('c_type')
     return random_song(band_filter, diff_filter, type_filter, if_competitive)
 
 
-app.run(host='0.0.0.0', port=8088, debug=True, threaded=True)
+app.run(host='0.0.0.0', port=8088, debug=False, threaded=True)
