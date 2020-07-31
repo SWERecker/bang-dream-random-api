@@ -48,4 +48,8 @@ def rdm_song(text):
     result_band = dictionary['band'].get(result.get('band'))
     result_type = dictionary['type'].get(result.get('type'))
     result_diff = result.get('diff')
-    return "选歌结果：\n{} — {}\n {} {}".format(result_name, result_band, result_type, result_diff)
+    return "选歌结果：\n{} — {}\n{} {}".format(result_name, result_band, result_type, result_diff)
+
+
+te = "随机选歌 乐队a；难度25，26"
+print(rdm_song(te))

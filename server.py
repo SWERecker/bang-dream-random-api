@@ -12,7 +12,7 @@ default_filter = {
 }
 
 
-def random_song(band, diff, s_type, competitive=False, include_others=False):
+def random_song(band, diff, s_type, competitive=False):
     result = []
     song_filter = {
         'band': [],
@@ -23,6 +23,11 @@ def random_song(band, diff, s_type, competitive=False, include_others=False):
         song_filter['band'] = default_filter['band']
     else:
         song_filter['band'] = band
+        for n in range(len(band)):
+            if band[n] == 'other':
+                del band[n]
+                for name in default_filter['band_other']:
+                    band.append(name)
     if not diff:
         song_filter['diff'] = default_filter['diff']
     else:
@@ -31,10 +36,6 @@ def random_song(band, diff, s_type, competitive=False, include_others=False):
         song_filter['type'] = default_filter['type']
     else:
         song_filter['type'] = s_type
-
-    if include_others:
-        for band in default_filter['band_other']:
-            song_filter['band'].append(band)
 
     if competitive:
         song_file = 'new_song_list_comp.json'
@@ -64,7 +65,7 @@ def app_route():
     app.logger.info(if_competitive)
     if_include_others = request.json.get('if_include')
     app.logger.info(if_include_others)
-    return random_song(band_filter, diff_filter, type_filter, if_competitive, if_include_others)
+    return random_song(band_filter, diff_filter, type_filter, if_competitive)
 
 
 app.run(host='0.0.0.0', port=8088, debug=True, threaded=True)
