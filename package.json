@@ -1,0 +1,14 @@
+{
+  "name": "bang-dream-random",
+  "version": "1.0.0",
+  "description": "BanG Dream random song picker",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sKnon",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
