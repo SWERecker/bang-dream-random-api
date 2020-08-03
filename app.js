@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
-
+var cp_song_data = require('./song_list_comp.json');
+var nm_song_data = require('./song_list.json');
 
 Array.prototype.contains = function (obj) {
 	var index = this.length;
@@ -39,40 +40,43 @@ app.get('/api',function(req,res){           //配置接口api
     result = {"msg": "error","result": []};
     if (!diff_filter){
 		diff_filter = def_filter.diff;
+		// console.log("lodding default diff")
 	}else{
 		diff_filter = diff_filter.split(',');
+		// console.log("lodding diff filter: "+diff_filter)
 	}
     if (!band_filter){
 		band_filter = def_filter.band;
+		// console.log("lodding default diff")
 	}else{
 		band_filter = band_filter.split(',');
+		// console.log("lodding band filter: "+ band_filter)
 	}
     if (!type_filter){
 		type_filter = def_filter.type;
+		// console.log("lodding default type")
 	}else{
 		type_filter = type_filter.split(',');
+		// console.log("lodding band filter: "+ type_filter)
 	}
 	if(band_filter.contains("other")) {
 		other_band.forEach(function(item){
 			band_filter.push(item)
 		});
 	}
-	if(data_mode == 'comp'){
-		var song_data = require('./song_list_comp.json');
-		console.log("load comp");
-	}else{
-		var song_data = require('./song_list.json');
-		console.log("load normal");
-	}
-	
-	
     fil_result = [];
+	// console.log("final filter: "+ diff_filter + "; " + type_filter + "; " + band_filter)
+	if (data_mode == 'comp') {
+		var song_data = cp_song_data;
+	}else{
+		var song_data = nm_song_data;
+	}
     song_data.forEach(function(item,index){
 		if (diff_filter.contains(item.diff) && band_filter.contains(item.band) && type_filter.contains(item.type)) {
 			fil_result.push(item);
 		}
 	});
-	if(fil_result == []){
+	if(fil_result.length == 0){
 		res.json(result);
 		return;
 	}
@@ -81,7 +85,6 @@ app.get('/api',function(req,res){           //配置接口api
 	}else{
 		result_song = fil_result
 	}
-	console.log(fil_result)
 	result = {"msg": "ok","result": result_song};
     res.json(result);
 })
