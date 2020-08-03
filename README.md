@@ -34,6 +34,7 @@
 请求随机一首SPECIAL难度的Pastel*Palettes的歌曲
 
 `https://api.mocabot.xyz/api?band=pp&type=sp&mode=random`
+
 请求列出Roselia和Afterglow的难度为28的歌曲
 
 `https://api.mocabot.xyz/api?band=ro,ag&diff=28`
