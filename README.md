@@ -84,7 +84,7 @@
             "hhwxranxaya": "ハロハピ×蘭×彩",
             "roxran": "Roselia×蘭",
             "agxkkr": "Afterglow×こころ",
-            "pppxgg": "Poppin‘Party × Glitter*Green",
+            "pppxgg": "Poppin‘Party × Glitter*Green"
         },
         "type": {
             "ex": "EXPERT",
