@@ -11,7 +11,7 @@
 |diff|24~28|24,25,26|筛选难度|
 |type|ex, sp, full|ex,sp|筛选歌曲类型|
 |mode|random|random|是否随机一首歌|
-|data|comp|comp|是否使用第三方难度分级（来源Q群椰叶的难度分级）|
+|data|comp|comp|是否使用[第三方难度分级][#third]|
 
 * 所有参数间用**半角**逗号分隔
 * 当不提供`mode=random`参数时，将会列出所有满足筛选条件的歌曲
@@ -63,39 +63,37 @@
 	}
   
   
-  ### 乐队 对应列表
-  
-  
+### 乐队 简称对应
 
     dictionary = {
-      "band": {
-          "ro": "Roselia",
-          "ppp": "Poppin‘Party",
-          "pp": "Pastel*Palettes",
-          "ag": "Afterglow",
-          "hhw": "Hello, Happy World",
-          "ras": "RAISE A SUILEN",
-          "mo": "Morfonica",
-          "rimi": "牛込りみ",
-          "saaya": "山吹沙綾",
-          "arisa": "市ヶ谷有咲",
-          "otae": "花園たえ",
-          "ayaxmocaxlisaxkanonxtsugu": "彩×モカ×リサ×花音×つぐみ",
-          "pppxykn": "Poppin‘Party×友希那",
-          "ksmxranxayaxyknxkkr": "香澄×蘭×彩×友希那×こころ",
-          "hhwxranxaya": "ハロハピ×蘭×彩",
-          "roxran": "Roselia×蘭",
-          "agxkkr": "Afterglow×こころ",
-          "pppxgg": "Poppin‘Party × Glitter*Green",
-      },
-      "type": {
-          "ex": "EXPERT",
-          "sp": "SPECIAL",
-          "full": "FULL"
-      }
-  }
+        "band": {
+            "ro": "Roselia",
+            "ppp": "Poppin‘Party",
+            "pp": "Pastel*Palettes",
+            "ag": "Afterglow",
+            "hhw": "Hello, Happy World",
+            "ras": "RAISE A SUILEN",
+            "mo": "Morfonica",
+            "rimi": "牛込りみ",
+            "saaya": "山吹沙綾",
+            "arisa": "市ヶ谷有咲",
+            "otae": "花園たえ",
+            "ayaxmocaxlisaxkanonxtsugu": "彩×モカ×リサ×花音×つぐみ",
+            "pppxykn": "Poppin‘Party×友希那",
+            "ksmxranxayaxyknxkkr": "香澄×蘭×彩×友希那×こころ",
+            "hhwxranxaya": "ハロハピ×蘭×彩",
+            "roxran": "Roselia×蘭",
+            "agxkkr": "Afterglow×こころ",
+            "pppxgg": "Poppin‘Party × Glitter*Green",
+        },
+        "type": {
+            "ex": "EXPERT",
+            "sp": "SPECIAL",
+            "full": "FULL"
+        }
+    }
   
-  ### 第三方难度分级调整的难度
+### 第三方难度分级调整的难度<div id="third"></div>
   
   
 |名称|类型|调整|
