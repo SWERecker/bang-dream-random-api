@@ -11,7 +11,7 @@
 |diff|24~28|24,25,26|筛选难度|
 |type|ex, sp, full|ex,sp|筛选歌曲类型|
 |mode|random|random|是否随机一首歌|
-|data|comp|comp|是否使用[第三方难度分级][#third]|
+|data|comp|comp|是否使用[第三方难度分级](#third)|
 
 * 所有参数间用**半角**逗号分隔
 * 当不提供`mode=random`参数时，将会列出所有满足筛选条件的歌曲
