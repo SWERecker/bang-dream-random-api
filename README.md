@@ -44,11 +44,21 @@
     {
         "msg": "ok",
         "result": [
-            "name": "ときめきエクスペリエンス！", # 歌曲名称
-            "band": "ppp", # 乐队简称
-            "diff": "25", # 难度（String类型）
-            "level": "ex", # 歌曲等级
-            "type": "og" # 原创/翻唱曲
+            {
+                "name": "ときめきエクスペリエンス！", # 歌曲名称
+                "band": "ppp", # 乐队简称
+                "diff": "25", # 难度（String类型）
+                "level": "ex", # 歌曲等级
+                "type": "og" # 原创/翻唱曲
+            },
+            {
+                "name": "Home Street", # 歌曲名称
+                "band": "ppp", # 乐队简称
+                "diff": "25", # 难度（String类型）
+                "level": "ex", # 歌曲等级
+                "type": "og" # 原创/翻唱曲
+            }
+            ...
         ]
     }
 
