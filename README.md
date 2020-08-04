@@ -1,6 +1,6 @@
 # 邦多利 随机选曲API
 
-这是一个用Node.JS实现的随机选择BanG Dream!Girls Band Party中歌曲的API
+一个用Node.JS实现的随机选择BanG Dream!Girls Band Party中歌曲的API
 
 默认端口3002，依赖express
 
@@ -9,9 +9,10 @@
 |:--------:|-----|:----:|:----:|
 |band|ppp, ro, ag, pp, hhw, ras, mo, other|ppp,ro|筛选乐队|
 |diff|24~28|24,25,26|筛选难度|
-|type|ex, sp, full|ex,sp|筛选歌曲类型|
+|level|ex, sp, full|ex,sp|筛选歌曲类型|
 |mode|random|random|是否随机一首歌|
 |data|comp|comp|是否使用[第三方难度分级](#third)|
+|type|og,co|co|og: 原创曲；co：翻唱曲|
 
 * 所有参数间用**半角**逗号分隔
 * 当不提供`mode=random`参数时，将会列出所有满足筛选条件的歌曲
@@ -19,41 +20,37 @@
 
 ### API请求示例
 
-请求随机一首Poppin'Party或Hello, Happy World!的难度为26的歌曲
+请求随机一首Poppin'Party或Hello, Happy World!的难度为26等级为SPECIAL的原创曲
 
-`https://api.mocabot.xyz/api?band=ppp,hhw&diff=26&mode=random`
-
-请求随机一首类型为SPECIAL的Pastel*Palettes的歌曲
-
-`https://api.mocabot.xyz/api?band=pp&type=sp&mode=random`
+`http://api.mocabot.xyz:3002/api?band=ppp,hhw&diff=26&mode=random&level=sp&type=og`
 
 请求随机一首比赛曲库中难度为27的Roselia的歌曲
 
-`https://api.mocabot.xyz/api?band=ro&mode=random`
+`http://api.mocabot.xyz:3002/api?band=ro&mode=random&data=comp`
 
-请求随机一首SPECIAL难度的Pastel*Palettes的歌曲
+请求随机一首SPECIAL等级的Pastel*Palettes的歌曲
 
-`https://api.mocabot.xyz/api?band=pp&type=sp&mode=random`
+`http://api.mocabot.xyz:3002/api?band=pp&level=sp&mode=random`
 
 请求列出Roselia和Afterglow的难度为28的歌曲
 
-`https://api.mocabot.xyz/api?band=ro,ag&diff=28`
+`http://api.mocabot.xyz:3002/api?band=ro,ag&diff=28`
 
 ### API返回值
 此API返回标准的JSON格式数据
 
 当请求正确时，返回格式为：
 
-	{
-		"msg": "ok",
-		"result": [
-			"id": 29, # 存储时使用的ID, 无实际意义
-			"name": "ときめきエクスペリエンス！", # 歌曲名称
-			"band": "ppp", # 乐队简称
-			"diff": "25", # 难度（String类型）
-			"type": "ex" # 歌曲类型
-		]
-	}
+    {
+        "msg": "ok",
+        "result": [
+            "name": "ときめきエクスペリエンス！", # 歌曲名称
+            "band": "ppp", # 乐队简称
+            "diff": "25", # 难度（String类型）
+            "level": "ex", # 歌曲等级
+            "type": "og" # 原创/翻唱曲
+        ]
+    }
 
 当请求错误时，（指筛选条件有误或者筛选条件下无歌曲的情况）：
 
