@@ -18,23 +18,25 @@
 * 当不提供`mode=random`参数时，将会列出所有满足筛选条件的歌曲
 * 选曲API收录了所有24~28难度的日服歌曲，数据为手工录入，可能有错误，可以发Issue指出
 
+* 公共API：`http(s)://api.mocabot.cn/api` 支持HTTP(S)
+
 ### API请求示例
 
 请求随机一首Poppin'Party或Hello, Happy World!的难度为26等级为SPECIAL的原创曲
 
-`http://api.mocabot.xyz:3002/api?band=ppp,hhw&diff=26&mode=random&level=sp&type=og`
+`https://api.mocabot.cn/api?band=ppp,hhw&diff=26&mode=random&level=sp&type=og`
 
 请求随机一首比赛曲库中难度为27的Roselia的歌曲
 
-`http://api.mocabot.xyz:3002/api?band=ro&mode=random&data=comp`
+`https://api.mocabot.cn/api?band=ro&mode=random&data=comp`
 
 请求随机一首SPECIAL等级的Pastel*Palettes的歌曲
 
-`http://api.mocabot.xyz:3002/api?band=pp&level=sp&mode=random`
+`https://api.mocabot.cn/api?band=pp&level=sp&mode=random`
 
 请求列出Roselia和Afterglow的难度为28的歌曲
 
-`http://api.mocabot.xyz:3002/api?band=ro,ag&diff=28`
+`https://api.mocabot.cn/api?band=ro,ag&diff=28`
 
 ### API返回值
 此API返回标准的JSON格式数据
